@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Welcome to My Portfolio
+
+  h2 Projects
+  each project in projects
+    div.project
+      h3= project.title
+      p= project.description
+      img(src=project.imageUrl, alt=project.title)
+      a(href=project.projectUrl) View Project
+
+  h2 Skills
+  ul
+    each skill in skills
+      li= `${skill.name} - ${skill.proficiency}`
