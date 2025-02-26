@@ -1,17 +1,26 @@
 extends layout
 
 block content
-  h1 Welcome to My Portfolio
+  link(rel='stylesheet', href='public/css/styles.css')
+  .container
+    h1 Welcome to My Portfolio
 
-  h2 Projects
-  each project in projects
-    div.project
-      h3= project.title
-      p= project.description
-      img(src=project.imageUrl, alt=project.title)
-      a(href=project.projectUrl) View Project
+    section.projects
+      h2 Projects
+      .project-grid
+        each project in projects
+          .project-card
+            img(src=project.imageUrl, alt=project.title)
+            .project-content
+              h3= project.title
+              p= project.description
+              a(href=project.projectUrl, target="_blank").btn View Project   
+              //- https://stackoverflow.com/questions/19588708/how-to-use-both-onclick-and-target-blank
 
-  h2 Skills
-  ul
-    each skill in skills
-      li= `${skill.name} - ${skill.proficiency}`
+    section.skills
+      h2 Skills
+      .skills-grid
+        each skill in skills
+          .skill-card
+            h3= skill.name
+            p= `Proficiency: ${skill.proficiency}`

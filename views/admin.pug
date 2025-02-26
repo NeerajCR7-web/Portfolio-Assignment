@@ -30,7 +30,7 @@ block content
   each project in projects
     div.project
       h3= project.title
-      form(action=`/admin/delete-project/${project._id}`, method="POST")
+      form(action=`/admin/delete-project/${project._id}`, method="POST") 
         button(type="submit") Delete Project
 
   h2 Skills
